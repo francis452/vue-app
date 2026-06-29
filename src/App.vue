@@ -1,42 +1,17 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import { NButton, NSpace } from 'naive-ui'
-
-import { useMessage } from 'naive-ui'
-
-const message = useMessage()
-
-const handleClick = () => {
-  message.success('Clicked!')
-}
+import { RouterView } from 'vue-router'
+import { NLayout, NMessageProvider, NConfigProvider, NLayoutContent } from 'naive-ui'
 </script>
 
 <template>
   <n-config-provider>
-    <n-layout style="min-height: 100vh;">
-      <n-layout-header bordered>
-        <div style="display: flex; align-items: center; justify-content: space-between;">
-          <div style="display: flex; align-items: center; gap: 20px;">
-            <img alt="Vue logo" src="@/assets/logo.svg" width="40" height="40" />
-            <n-space>
-              <RouterLink to="/" style="text-decoration: none;">
-                <n-button>Home</n-button>
-              </RouterLink>
-              <RouterLink to="/about" style="text-decoration: none;">
-                <n-button>About</n-button>
-              </RouterLink>
-            </n-space>
-          </div>
-          <div>
-            <n-button type="primary" @click="handleClick">Primary</n-button>
-          </div>
-        </div>
-      </n-layout-header>
-
-      <n-layout-content style="padding: 20px;">
-        <RouterView />
-      </n-layout-content>
-    </n-layout>
+    <n-message-provider>
+      <n-layout style="min-height: 100vh;">
+        <n-layout-content>
+          <RouterView />
+        </n-layout-content>
+      </n-layout>
+    </n-message-provider>
   </n-config-provider>
 </template>
 
