@@ -22,7 +22,7 @@ const aspectRatio = computed(() => (width.value / height.value).toFixed(2))
 <style lang="scss" scoped>
 .hybrid-stage {
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   font-size: clamp(9px, 0.72vw, 18px);
 }

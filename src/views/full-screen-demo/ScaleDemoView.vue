@@ -29,7 +29,7 @@ const { width, height } = useWindowSize()
 .scale-stage {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   background: #05070f;
 }

@@ -20,7 +20,7 @@ const { currentFontSize, currentScale } = useRem({ designHeight: 1080 })
 <style lang="scss" scoped>
 .rem-stage {
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   font-size: 1rem;
 }
