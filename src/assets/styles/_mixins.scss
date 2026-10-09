@@ -1,0 +1,70 @@
+@use 'variables' as *;
+
+
+// 渐变文字
+@mixin gradient-text($from: #fff, $to: $accent-blue) {
+  background: linear-gradient(180deg, $from, $to);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// 卡片顶部发光线
+@mixin card-top-line($color: $accent-blue) {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $color, transparent);
+    pointer-events: none;
+  }
+}
+
+// 毛玻璃效果
+@mixin glass-effect($bg: $bg-card, $blur: 4px) {
+  background: $bg;
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+}
+
+// 微网格背景
+@mixin micro-grid($color: rgba(102, 126, 234, 0.05), $size: 20px) {
+  background-image: 
+    linear-gradient(135deg, $color 25%, transparent 25%),
+    linear-gradient(225deg, $color 25%, transparent 25%),
+    linear-gradient(315deg, $color 25%, transparent 25%),
+    linear-gradient(45deg, $color 25%, transparent 25%);
+  background-size: $size $size;
+}
+
+// 超宽屏
+@mixin ultrawide {
+  @media screen and (min-aspect-ratio: $breakpoint-ultrawide) {
+    @content;
+  }
+}
+
+// 窄屏
+@mixin narrow-screen {
+  @media screen and (max-aspect-ratio: $breakpoint-narrow) {
+    @content;
+  }
+}
+
+// 标准屏
+@mixin standard-screen {
+  @media screen and (min-aspect-ratio: $breakpoint-narrow) and (max-aspect-ratio: $breakpoint-ultrawide) {
+    @content;
+  }
+}
+
+// 小窗口
+@mixin small-window {
+  @media screen and (max-width: $breakpoint-sm) {
+    @content;
+  }
+}

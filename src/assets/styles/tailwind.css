@@ -1,0 +1,9 @@
+/*
+ * Tailwind CSS v4 入口
+ * 只引入 theme 与 utilities 两层，不引入 preflight（基础样式重置）：
+ * naive-ui 的组件样式依赖浏览器默认样式 + 自身注入，preflight 的 reset 会破坏其外观，
+ * 因此这里跳过 preflight，只提供原子工具类。
+ */
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);

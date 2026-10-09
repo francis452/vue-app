@@ -21,6 +21,15 @@
         <n-input :value="formatDateTime" readonly placeholder="未选择" style="width: 300px" />
       </n-form-item>
     </n-form>
+
+    <h1>------------------------------------------------------------------------------------------------</h1>
+    <div class="btn-list">
+      <n-button type="default">默认按钮</n-button>
+      <n-button type="default">默认按钮</n-button>
+      <n-button type="default">默认按钮</n-button>
+      <n-button type="default">默认按钮</n-button>
+      <n-button type="default">默认按钮</n-button>
+    </div>
   </div>
 </template>
 
@@ -62,8 +71,8 @@ onMounted(() => {
 <style scoped>
 .naive-ui-test {
   padding: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
+  /* max-width: 800px;
+  margin: 0 auto; */
 }
 
 h1 {

@@ -1,12 +1,27 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
-import { NLayout, NMessageProvider, NConfigProvider, NLayoutContent } from 'naive-ui'
+import { RouterView, RouterLink } from 'vue-router'
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+import { NLayout, NMessageProvider, NConfigProvider, NLayoutContent, NLayoutHeader } from 'naive-ui'
+
+const route = useRoute()
+const shouldShowAppHeader = computed(() => !route.meta.hideAppHeader)
 </script>
 
 <template>
   <n-config-provider>
     <n-message-provider>
       <n-layout style="min-height: 100vh;">
+        <n-layout-header v-if="shouldShowAppHeader" bordered class="app-header">
+          <div class="app-title">Vue App</div>
+          <nav class="app-nav">
+            <RouterLink to="/naive-ui-test">Naive UI 测试</RouterLink>
+            <RouterLink to="/draggable-list">拖拽列表</RouterLink>
+            <RouterLink to="/n-spin-research">NSpin 研究</RouterLink>
+            <RouterLink to="/n-data-table-research">NDataTable 研究</RouterLink>
+            <RouterLink to="/full-screen-demo">全屏适配 Demo</RouterLink>
+          </nav>
+        </n-layout-header>
         <n-layout-content>
           <RouterView />
         </n-layout-content>
@@ -16,6 +31,42 @@ import { NLayout, NMessageProvider, NConfigProvider, NLayoutContent } from 'naiv
 </template>
 
 <style scoped>
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 2rem;
+  height: 56px;
+}
+
+.app-title {
+  width: 100px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.app-nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.app-nav a {
+  color: #666;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.app-nav a:hover {
+  color: #1890ff;
+}
+
+.app-nav a.router-link-exact-active {
+  color: #1890ff;
+  font-weight: 500;
+}
+
 header {
   line-height: 1.5;
   max-height: 100vh;
